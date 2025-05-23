@@ -5,7 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Link in Bio - Bisnovo</title>
     <style>
-        /* [CSS tetap sama seperti di atas, tidak perlu diubah] */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 90%;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Profile Section */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 3px solid #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+
+        .name {
+            color: #fff;
+            font-size: 1.8rem;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+        }
+
+        .bio {
+            color: #ccc;
+            font-size: 1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Link Buttons */
+        .link {
+            display: block;
+            background: #2a2a2a;
+            color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .link:hover {
+            background: #00ff88;
+            color: #1a1a1a;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 255, 136, 0.5);
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .link:hover::before {
+            left: 100%;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #00ff88;
+            transform: scale(1.2);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            .name {
+                font-size: 1.5rem;
+            }
+
+            .link {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -13,7 +160,7 @@
     <div class="container">
         <!-- Profile Section -->
         <div class="profile-pic">
-            <img src="profile.jpg" alt="Profile Picture">
+            <img src="assets/profile.jpg" alt="Bisnovo Profile Picture">
         </div>
         <h1 class="name">Bisnovo</h1>
         <p class="bio">Mulai Bisnis Mudah & Cepat</p>
@@ -23,28 +170,45 @@
         <a href="https://www.tiktok.com/@bisnovo" class="link">TikTok</a>
         <a href="https://www.facebook.com/bisnovo" class="link">Facebook</a>
         <a href="https://t.me/bisnovo" class="link">Telegram</a>
-        <a href="https://x.com/bisnovo?s=09" class="link">X (Twitter)</a>
-        <a href="mailto:bisnovohq@gmail.com" class="link">Hubungi Kami</a>
+        <a href="https://x.com/bisnovo?s=09" class="link">X Profile</a>
+        <a href="mailto:bisnovohq@gmail.com" class="link">Contact Me</a>
 
         <!-- Social Icons -->
         <div class="social-icons">
             <a href="https://www.instagram.com/bisnovo/"><i class="fab fa-instagram"></i></a>
-            <a href="https://x.com/bisnovo?s=09"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.facebook.com/bisnovo"><i class="fab fa-facebook"></i></a>
             <a href="https://www.tiktok.com/@bisnovo"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.facebook.com/bisnovo"><i class="fab fa-facebook"></i></a>
+            <a href="https://t.me/bisnovo"><i class="fab fa-telegram"></i></a>
+            <a href="https://x.com/bisnovo?s=09"><i class="fab fa-twitter"></i></a>
         </div>
 
         <!-- Footer -->
         <p class="footer">© 2025 Bisnovo. All Rights Reserved.</p>
     </div>
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
-    <!-- Particles.js -->
+    <!-- Particles.js for Background Animation -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // [Particles.js script tetap sama]
+        particlesJS("particles", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#00ff88" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#00ff88", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
 </html>
